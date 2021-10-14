@@ -3,8 +3,104 @@ import 'package:flutter/material.dart';
 import 'package:fluttermyapp/calls_screen.dart';
 import 'package:fluttermyapp/listview_screen.dart';
 
+import 'models/user.dart';
+
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  late List<User> users = [];
+  late List<User> usersMessage = [];
+String _email,_password;
+
+
+  HomeScreen(this._email, this._password) {
+print(_email + " "+ _password);
+    var user1 = User.state("Amir",
+        "https://antolgy.com/wp-content/uploads/2018/08/elon-musk-1.jpg");
+
+    var user2 = User.state("Peter",
+        "https://media.wired.com/photos/6019cab23453f789506008d0/1:1/w_1600,h_1600,c_limit/Sec_Bezos_1036084400.jpg");
+
+    var user3 = User.state("Fahmy",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg/1200px-Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg");
+
+    var user4 = User.state(
+        "Marco", "https://img.kooora.com/?i=ashraf-zamrani%2Flionelmessi.gif");
+
+    var user5 = User.state("Khalaf",
+        "https://content.fortune.com/wp-content/uploads/2020/09/CNV.10.20.FORTUNE_BILL_AND_MELINDA_GATES_030-vertical.jpg");
+
+    var user6 = User.state("Hamdy",
+        "https://cdn.vox-cdn.com/thumbor/7VvhqD3PcqsQrD3L4J2LBRhlsaU=/0x137:575x520/1400x1400/filters:focal(0x137:575x520):format(png)/cdn.vox-cdn.com/assets/695120/jobs_hero20110329.png");
+
+    users.add(user1);
+    users.add(user2);
+    users.add(user3);
+    users.add(user4);
+    users.add(user5);
+    users.add(user6);
+
+    users.add(user1);
+    users.add(user2);
+    users.add(user3);
+    users.add(user4);
+    users.add(user5);
+    users.add(user6);
+
+    var userm1 = User.message(
+        "Amir",
+        "https://antolgy.com/wp-content/uploads/2018/08/elon-musk-1.jpg",
+        "message test hello Amir",
+        false,
+        false);
+
+    var userm2 = User.message(
+        "Peter",
+        "https://media.wired.com/photos/6019cab23453f789506008d0/1:1/w_1600,h_1600,c_limit/Sec_Bezos_1036084400.jpg",
+        "message test hello Peter",
+        false,
+        true);
+
+    var userm3 = User.message(
+        "Fahmy",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg/1200px-Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg",
+        "message test hello Fahmy",
+        true,
+        false);
+
+    var userm4 = User.message(
+        "Marco",
+        "https://img.kooora.com/?i=ashraf-zamrani%2Flionelmessi.gif",
+        "message test hello Marco",
+        true,
+        true);
+
+    var userm5 = User.message(
+        "Khalaf",
+        "https://content.fortune.com/wp-content/uploads/2020/09/CNV.10.20.FORTUNE_BILL_AND_MELINDA_GATES_030-vertical.jpg",
+        "message test hello Khalaf",
+        false,
+        true);
+
+    var userm6 = User.message(
+        "Hamdy",
+        "https://cdn.vox-cdn.com/thumbor/7VvhqD3PcqsQrD3L4J2LBRhlsaU=/0x137:575x520/1400x1400/filters:focal(0x137:575x520):format(png)/cdn.vox-cdn.com/assets/695120/jobs_hero20110329.png",
+        "message test hello Hamdy",
+        true,
+        false);
+
+    usersMessage.add(userm1);
+    usersMessage.add(userm2);
+    usersMessage.add(userm3);
+    usersMessage.add(userm4);
+    usersMessage.add(userm5);
+    usersMessage.add(userm6);
+
+    usersMessage.add(userm1);
+    usersMessage.add(userm2);
+    usersMessage.add(userm3);
+    usersMessage.add(userm4);
+    usersMessage.add(userm5);
+    usersMessage.add(userm6);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +170,7 @@ class HomeScreen extends StatelessWidget {
                 primary: false,
                 children: [
                   Container(
-                    margin:
-                        EdgeInsets.only(bottom: 16, left: 16, right: 16),
+                    margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -98,7 +193,7 @@ class HomeScreen extends StatelessWidget {
                   ), //search
                   Container(
                     alignment: Alignment.centerLeft,
-                    height: 105,
+                    height: 110,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
@@ -113,8 +208,7 @@ class HomeScreen extends StatelessWidget {
                                   onPressed: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            CallsScreen(),
+                                        builder: (context) => CallsScreen(),
                                       )),
                                   icon: Icon(Icons.add),
                                 ),
@@ -135,32 +229,34 @@ class HomeScreen extends StatelessWidget {
                         ),
                         ListView.separated(
                           separatorBuilder: (context, index) {
-                            return VerticalDivider(width: 1,color: Colors.white,thickness: .1,);
+                            return VerticalDivider(
+                              width: 1,
+                              color: Colors.white,
+                              thickness: .1,
+                            );
                           },
-                          itemCount: 9,
+                          itemCount: users.length,
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return Container(
                               width: 70,
-                              margin:
-                                  EdgeInsets.symmetric(horizontal: 8),
+                              margin: EdgeInsets.symmetric(horizontal: 8),
                               alignment: Alignment.topCenter,
                               child: Column(
-                                children: const [
+                                children: [
                                   CircleAvatar(
                                     radius: 31,
-                                    backgroundImage: NetworkImage(
-                                        "https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5bb22ae84bbe6f67d2e82e05%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D627%26cropX2%3D1639%26cropY1%3D129%26cropY2%3D1142"),
+                                    backgroundImage:
+                                        NetworkImage(users[index].url),
                                   ),
                                   SizedBox(
                                     height: 8,
                                   ),
                                   Text(
-                                    "Mahmoud khalaf mohamed",
+                                    users[index].name,
                                     textAlign: TextAlign.center,
-                                    style:
-                                        TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.white),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                   ),
@@ -178,7 +274,11 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 12, right: 8),
                     child: ListView.separated(
-                      separatorBuilder:(context, index) =>  Divider(thickness: .2,height: 16,color: Colors.white,),
+                      separatorBuilder: (context, index) => Divider(
+                        thickness: .2,
+                        height: 16,
+                        color: Colors.white,
+                      ),
                       shrinkWrap: true,
                       primary: false,
                       itemCount: 9,
@@ -187,39 +287,46 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 0.0),
                           child: Row(
                             children: [
-                              CircleAvatar(
-                                radius: 31,
-                                backgroundImage: NetworkImage(
-                                    "https://ichef.bbci.co.uk/news/1024/cpsprodpb/B4EC/production/_116361364_tes1.png"),
+                              Stack(alignment: Alignment.bottomRight,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 31,
+                                    backgroundImage:
+                                        NetworkImage(usersMessage[index].url),
+                                  ),
+                                  CircleAvatar(backgroundColor: Colors.black,radius: 8.2,),
+                                  CircleAvatar(backgroundColor: usersMessage[index].active ? Colors.green : Colors.red,radius: 7,)
+                                ],
                               ),
                               SizedBox(
                                 width: 16,
                               ),
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      children: const [
+                                      children: [
                                         Expanded(
                                           child: Text(
-                                            "Elon musk",
+                                            usersMessage[index].name,
                                             style: TextStyle(
                                                 color: Color(0xFFBABABA),
                                                 fontSize: 21,
-                                                fontWeight:
-                                                    FontWeight.w400),
+                                                fontWeight: FontWeight.w400),
                                           ),
                                         ),
                                         CircleAvatar(
                                           radius: 6,
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor:
+                                              usersMessage[index].read
+                                                  ? Colors.blue
+                                                  : Colors.transparent,
                                         )
                                       ],
                                     ),
                                     Text(
-                                      "please help us we are in trouble we need your hesdsalp",
+                                      usersMessage[index].message,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           color: Color(0xFFBABABA),

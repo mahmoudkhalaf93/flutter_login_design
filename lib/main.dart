@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttermyapp/bmi_calculator.dart';
 import 'package:fluttermyapp/calls_screen.dart';
+import 'package:fluttermyapp/counter_screen.dart';
 import 'package:fluttermyapp/forget_your_password.dart';
 import 'package:fluttermyapp/listview_screen.dart';
 import 'package:fluttermyapp/login.dart';
