@@ -1,14 +1,28 @@
+
+
+
 import 'package:flutter/material.dart';
-import 'package:fluttermyapp/bmi_calculator.dart';
-import 'package:fluttermyapp/calls_screen.dart';
-import 'package:fluttermyapp/counter_screen.dart';
-import 'package:fluttermyapp/forget_your_password.dart';
-import 'package:fluttermyapp/listview_screen.dart';
-import 'package:fluttermyapp/login.dart';
-import 'package:fluttermyapp/register.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:fluttermyapp/databaseLessson/home.dart';
+import 'package:fluttermyapp/shop_app/register_screen.dart';
+
+import 'bloclesson/bloc_observer.dart';
+
+
+
+
 
 void main() {
+
+  //Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
+  BlocOverrides.runZoned(
+        () {
+      // Use blocs...
+    },
+    blocObserver: MyBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,29 +35,29 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Palette.kToDark ,
+        primarySwatch: Colors.blue,
       ),
-      home:  const Login(),
+      home:   RegisterShop(),
     );
   }
 }
-class Palette {
-  static const MaterialColor kToDark = const MaterialColor(
-    0xff1e2732, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
-    const <int, Color>{
-      50: const Color(0xff1e2732),//10%
-      100: const Color(0xff3c4045),//20%
-      200: const Color(0xff3c4045),//30%
-      300: const Color(0xff3c4045),//40%
-      400: const Color(0xff3c4045),//50%
-      500: const Color(0xff3c4045),//60%
-      600: const Color(0xff3c4045),//70%
-      700: const Color(0xff3c4045),//80%
-      800: const Color(0xff3c4045),//90%
-      900: const Color(0xff3c4045),//100%
-    },
-  );
-}
+// class Palette {
+//   static const MaterialColor kToDark = const MaterialColor(
+//     0xff1e2732, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
+//     const <int, Color>{
+//       50: const Color(0xff1e2732),//10%
+//       100: const Color(0xff3c4045),//20%
+//       200: const Color(0xff3c4045),//30%
+//       300: const Color(0xff3c4045),//40%
+//       400: const Color(0xff3c4045),//50%
+//       500: const Color(0xff3c4045),//60%
+//       600: const Color(0xff3c4045),//70%
+//       700: const Color(0xff3c4045),//80%
+//       800: const Color(0xff3c4045),//90%
+//       900: const Color(0xff3c4045),//100%
+//     },
+//   );
+// }
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 

@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:fluttermyapp/compnents.dart';
-import 'package:fluttermyapp/forget_your_password.dart';
-import 'package:fluttermyapp/register.dart';
+import 'package:fluttermyapp/old_tasks/forget_your_password.dart';
+import 'package:fluttermyapp/old_tasks/register.dart';
 
-import 'home_screen.dart';
+import 'messenger.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -223,7 +223,7 @@ class _LoginState extends State<Login> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(email, password),
+            builder: (context) => Messenger(email, password),
           ));
     }
   }

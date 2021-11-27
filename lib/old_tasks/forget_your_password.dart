@@ -4,6 +4,8 @@ import 'package:fluttermyapp/compnents.dart';
 
 import 'verify_your_email.dart';
 
+
+
 class ForgetYourPassword extends StatelessWidget {
   ForgetYourPassword({Key? key}) : super(key: key);
   TextEditingController emailController = TextEditingController();
@@ -72,21 +74,23 @@ class ForgetYourPassword extends StatelessWidget {
               //       shape: RoundedRectangleBorder(
               //           borderRadius: BorderRadius.circular(50))),
               // ),
-              myButtonWidget(
-                  texts: "Verify Email",
-                  backgroundColor: Color(0xff1e2732),
-                  height: 100,
-                  width: 10,
-                  onPressed: () {
-                    //  formKey.currentState!.validate();
-                    if (formKey.currentState!.validate()) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => VerifyYourEmail(),
-                          ));
-                    }
-                  })
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: myButtonWidget(
+                    texts: "Verify Email",
+                    backgroundColor: Color(0xff1e2732),
+
+                    onPressed: () {
+                      //  formKey.currentState!.validate();
+                      if (formKey.currentState!.validate()) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => VerifyYourEmail(),
+                            ));
+                      }
+                    }),
+              )
             ],
           ),
         ),

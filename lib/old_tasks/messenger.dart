@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttermyapp/calls_screen.dart';
-import 'package:fluttermyapp/listview_screen.dart';
+import 'package:fluttermyapp/old_tasks/calls_screen.dart';
+import 'package:fluttermyapp/old_tasks/listview_screen.dart';
 
-import 'models/user.dart';
+import '../models/user.dart';
 
-class HomeScreen extends StatelessWidget {
+class Messenger extends StatelessWidget {
   late List<User> users = [];
   late List<User> usersMessage = [];
 String _email,_password;
 
 
-  HomeScreen(this._email, this._password) {
+  Messenger(this._email, this._password) {
 print(_email + " "+ _password);
     var user1 = User.state("Amir",
         "https://antolgy.com/wp-content/uploads/2018/08/elon-musk-1.jpg");
